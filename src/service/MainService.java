@@ -25,6 +25,7 @@ public class MainService {
 			System.out.println(getMean(array));
 			System.out.println(getMin(array));
 			System.out.println(getMax(array));
+			System.out.println(Arrays.toString(arraySort(array)));
 		}
 		catch (Exception e){
 			System.out.println(e);
@@ -103,4 +104,57 @@ public class MainService {
 		return largestValue;
 	}
 	
+	//Code taken from: https://www.geeksforgeeks.org/dsa/bubble-sort-algorithm/
+	static double[] arraySort(double[] array) throws Exception {
+		if (array == null) {
+			throw new Exception("Reference to array cannot be null.");
+		}
+		
+		 int i, j;
+		 double temp;
+		 int n = array.length;
+	     boolean swapped;
+	        for (i = 0; i < n - 1; i++) {
+	            swapped = false;
+	            for (j = 0; j < n - i - 1; j++) {
+	                if (array[j] > array[j + 1]) {
+	                    
+	                    temp = array[j];
+	                    array[j] = array[j + 1];
+	                    array[j + 1] = temp;
+	                    swapped = true;
+	                }
+	            }
+
+	            if (swapped == false) {
+	                break;
+	            }
+	        }
+	   return array;
+	}
+	static double[][] generateMatrix(int N) {
+		if (i < 1) {
+			throw new Exception("Matrix size cannot be less than 1.");
+		}
+		
+		Random random = new Random()
+		double[][] matrix = new double[N][N];
+		
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				matrix[i][j] = random.nextDouble(0, 100);
+			}
+		}
+		
+		return matrix;
+		
+	}
+	static double getProduct(double[][] matrix, int i, int j) throws Exception{
+		if (matrix == null) {
+			throw new Exception("Reference to matrix cannot be null.");
+		}
+		if ( i < 0 || j < 0 || i > N || j > N) {
+			throw new Exception("Row or column cannot be ");
+		}
+	}
 }
